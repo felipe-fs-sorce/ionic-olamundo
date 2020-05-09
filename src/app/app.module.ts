@@ -9,18 +9,31 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+// Importa o serviço de acesso aos usuários da API
+import { UsersService } from './services/users.service';
+
+// Módulo HTTP do Angular
+import { HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+
+    // Inicialização da classe
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+
+    // Inicialização da classe UsersService
+    UsersService
+
+
   ],
   bootstrap: [AppComponent]
 })
